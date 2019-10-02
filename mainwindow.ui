@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>727</width>
+    <height>826</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+color : #fff;
+font-size : 11;
+}
+
+QLabel{
+color : #777;
+}
+
+QLabel#labelHead{
+	background-image: url(:/newPrefix/logo.png);
+min-width : 40px;
+min-height : 50px;
+max-width : 40px;
+max-height : 50px;
+}
+
+QFrame{
+	border : none;
+}
+
+QFrame#background{
+	background : #323232;
+}
+
+QFrame#content{
+	background : #444444;
+	border-radius : 7px;
+	margin : 10px;
+}
+QFrame#frameMat1{
+border : 1px solid #555;
+border-radius : 7px;
+background : #555;
+}
+QFrame#frameMat2{
+border : 1px solid #555;
+border-radius : 7px;
+background : #555;
+}
+
+QFrame#frameMat3{
+border : 1px solid #555;
+border-radius : 7px;
+background : #555;
+}
+
+QPushButton{
+	background : #333333;
+	border : 1px solid #888;
+	border-radius : 10px;
+	padding : 3px 30px 3px 30px;
+}
+
+QPushButton::hover{
+	background : #333333;
+	border : 1px solid #fff;
+	border-radius : 10px;
+	padding : 3px 30px 3px 30px;
+	
+}
+
+QComboBox{
+	background : #444444;
+	border : 1px solid #888;
+	border-radius : 10px;
+	padding : 3px 15px 3px 15px;
+}
+
+QComboBox::hover{
+	background : #444444;
+	border : 1px solid #fff;
+	border-radius : 10px;
+	padding : 3px 15px 3px 15px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QFrame" name="background">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QFrame" name="head">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>230</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelHead">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>229</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QFrame" name="content">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QPushButton" name="pushButtonSetDim">
+            <property name="text">
+             <string>dimensions</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QFrame" name="mat1">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMat1">
+                 <property name="text">
+                  <string>Matrix 1</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QLabel" name="labelMat1Rows">
+                 <property name="text">
+                  <string>Rows</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxMat1Rows"/>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMat2Cols_2">
+                 <property name="text">
+                  <string>Cols</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxMat1Cols"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QFrame" name="frameMat1">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_5">
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="mat1_2_2"/>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QSpinBox" name="mat1_2_0"/>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="mat1_2_1"/>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QSpinBox" name="mat1_0_3"/>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QSpinBox" name="mat1_1_3"/>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="mat1_1_1"/>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="mat1_0_2"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QSpinBox" name="mat1_1_0"/>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="mat1_2_3"/>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="mat1_1_2"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="mat1_0_1"/>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QSpinBox" name="mat1_0_0"/>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QSpinBox" name="mat1_3_0"/>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="mat1_3_1"/>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="mat1_3_2"/>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="mat1_3_3"/>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="3">
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0" colspan="5">
+           <widget class="QFrame" name="frameResultContent">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="1" column="1">
+              <widget class="QFrame" name="frameMat3">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_7">
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="mat3_1_2"/>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QSpinBox" name="mat3_1_3"/>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="mat3_2_1"/>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QSpinBox" name="mat3_2_0"/>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="mat3_2_2"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QSpinBox" name="mat3_2_3"/>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="mat3_1_0"/>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QSpinBox" name="mat3_1_1"/>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="mat3_3_0"/>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="mat3_3_1"/>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QSpinBox" name="mat3_3_3"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="mat3_3_2"/>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QSpinBox" name="mat3_0_0"/>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="mat3_0_1"/>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="mat3_0_2"/>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="mat3_0_3"/>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <spacer name="horizontalSpacer_12">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_11">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <spacer name="horizontalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMat3">
+                 <property name="text">
+                  <string>Matrix</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_10">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="3" colspan="2">
+           <widget class="QFrame" name="frame">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLabel" name="matrix2">
+                 <property name="text">
+                  <string>Matrix 2</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QLabel" name="labelMat2Rows">
+                 <property name="text">
+                  <string>Rows</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxMat2Rows"/>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMat2Cols">
+                 <property name="text">
+                  <string>Cols</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxMat2Cols"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QFrame" name="frameMat2">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_4">
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="mat2_2_3"/>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="mat2_2_1"/>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="mat2_2_2"/>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QSpinBox" name="mat2_1_3"/>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="mat2_1_2"/>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QSpinBox" name="mat2_2_0"/>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="mat2_0_2"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="mat2_0_1"/>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="mat2_1_1"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QSpinBox" name="mat2_1_0"/>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QSpinBox" name="mat2_0_0"/>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QSpinBox" name="mat2_0_3"/>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QSpinBox" name="mat2_3_0"/>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="mat2_3_1"/>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="mat2_3_2"/>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="mat2_3_3"/>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <spacer name="horizontalSpacer_16">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="2">
+           <widget class="QPushButton" name="pushButton_calculate">
+            <property name="text">
+             <string>calculate</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QFrame" name="frame_2">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>161</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBoxChooseOperation">
+            <item>
+             <property name="text">
+              <string>matrix multiplication</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>frobenius dot product</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>matrix-vector multiplication</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>161</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
