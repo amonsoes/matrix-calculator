@@ -365,52 +365,52 @@ QComboBox::hover{
                </property>
                <layout class="QGridLayout" name="gridLayout_7">
                 <item row="2" column="1">
-                 <widget class="QSpinBox" name="mat3_1_2"/>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QSpinBox" name="mat3_1_3"/>
-                </item>
-                <item row="1" column="1">
                  <widget class="QSpinBox" name="mat3_2_1"/>
                 </item>
-                <item row="1" column="3">
-                 <widget class="QSpinBox" name="mat3_2_0"/>
+                <item row="0" column="3">
+                 <widget class="QSpinBox" name="mat3_0_3"/>
                 </item>
-                <item row="0" column="2">
-                 <widget class="QSpinBox" name="mat3_2_2"/>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QSpinBox" name="mat3_2_3"/>
-                </item>
-                <item row="2" column="2">
-                 <widget class="QSpinBox" name="mat3_1_0"/>
-                </item>
-                <item row="2" column="0">
+                <item row="1" column="1">
                  <widget class="QSpinBox" name="mat3_1_1"/>
                 </item>
-                <item row="2" column="3">
-                 <widget class="QSpinBox" name="mat3_3_0"/>
+                <item row="1" column="3">
+                 <widget class="QSpinBox" name="mat3_1_3"/>
                 </item>
-                <item row="1" column="2">
-                 <widget class="QSpinBox" name="mat3_3_1"/>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QSpinBox" name="mat3_3_3"/>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QSpinBox" name="mat3_3_2"/>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QSpinBox" name="mat3_0_0"/>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QSpinBox" name="mat3_0_1"/>
-                </item>
-                <item row="3" column="2">
+                <item row="0" column="2">
                  <widget class="QSpinBox" name="mat3_0_2"/>
                 </item>
+                <item row="1" column="0">
+                 <widget class="QSpinBox" name="mat3_1_0"/>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="mat3_2_2"/>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QSpinBox" name="mat3_2_0"/>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="mat3_2_3"/>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="mat3_1_2"/>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QSpinBox" name="mat3_0_0"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="mat3_0_1"/>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QSpinBox" name="mat3_3_0"/>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="mat3_3_1"/>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="mat3_3_2"/>
+                </item>
                 <item row="3" column="3">
-                 <widget class="QSpinBox" name="mat3_0_3"/>
+                 <widget class="QSpinBox" name="mat3_3_3"/>
                 </item>
                </layout>
               </widget>
