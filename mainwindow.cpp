@@ -19,16 +19,42 @@ void printVector(QVector<QSpinBox*> vect)
     }
 }
 
-// change mulVec to matrix multiplication output
-QVector<int> mulVectors(QVector<int> firstVec,QVector<int> secondVec)
+
+QVector<int> mulVectors(QVector<int> firstVec,QVector<QVector<int>> matrixVec)
 {
-    QVector<int> result;
-    result.reserve(firstVec.size());
-    for (int i = 0; i < firstVec.size(); i++)
+    QVector<QVector<int>> mulMatrix;
+    mulMatrix.reserve(firstVec.size());
+
+    for (int i = 0; i < firstVec.size(); i++) //(1,2,3)
     {
-        result.push_back(firstVec[i] * secondVec[i]);
+        QVector<int> temp;
+
+        for (QVector<int> vec : matrixVec ) //matrixVec : ((1,2),(3,4),(5,6))
+        {
+
+            for (int num : vec) // vec : (1,2)
+            {
+                temp.push_back(i * num);
+                mulMatrix.push_back(temp); // i* 1, i* 2
+            }
+
+        } // for
     }
-    return result;
+
+    QVector<int> resultVec;
+
+    for (int i = 0; i < mulMatrix.size(); i++)
+    {
+        int sum = 0;
+
+        for (int j = 0; j < mulMatrix.size(); j++)
+        {
+            sum += mulMatrix[j][i];
+        }
+
+        resultVec.push_back(sum);
+    }
+    return resultVec;
 }
 
 
@@ -268,29 +294,29 @@ void MainWindow::calculateButtonPressed()
     QVector<QSpinBox*> mat2VecRow1;
     mat2VecRow1.reserve(4);
     mat2VecRow1.push_back(ui->mat2_0_0);
-    mat2VecRow1.push_back(ui->mat2_1_0);
-    mat2VecRow1.push_back(ui->mat2_2_0);
-    mat2VecRow1.push_back(ui->mat2_3_0);
+    mat2VecRow1.push_back(ui->mat2_0_1);
+    mat2VecRow1.push_back(ui->mat2_0_2);
+    mat2VecRow1.push_back(ui->mat2_0_3);
 
     QVector<QSpinBox*> mat2VecRow2;
     mat2VecRow2.reserve(4);
-    mat2VecRow2.push_back(ui->mat2_0_1);
+    mat2VecRow2.push_back(ui->mat2_1_0);
     mat2VecRow2.push_back(ui->mat2_1_1);
-    mat2VecRow2.push_back(ui->mat2_2_1);
-    mat2VecRow2.push_back(ui->mat2_3_1);
+    mat2VecRow2.push_back(ui->mat2_1_2);
+    mat2VecRow2.push_back(ui->mat2_1_3);
 
     QVector<QSpinBox*> mat2VecRow3;
     mat2VecRow3.reserve(4);
-    mat2VecRow3.push_back(ui->mat2_0_2);
-    mat2VecRow3.push_back(ui->mat2_1_2);
+    mat2VecRow3.push_back(ui->mat2_2_0);
+    mat2VecRow3.push_back(ui->mat2_2_1);
     mat2VecRow3.push_back(ui->mat2_2_2);
-    mat2VecRow3.push_back(ui->mat2_3_2);
+    mat2VecRow3.push_back(ui->mat2_2_3);
 
     QVector<QSpinBox*> mat2VecRow4;
     mat2VecRow4.reserve(4);
-    mat2VecRow4.push_back(ui->mat2_0_3);
-    mat2VecRow4.push_back(ui->mat2_1_3);
-    mat2VecRow4.push_back(ui->mat2_2_3);
+    mat2VecRow4.push_back(ui->mat2_3_0);
+    mat2VecRow4.push_back(ui->mat2_3_1);
+    mat2VecRow4.push_back(ui->mat2_3_2);
     mat2VecRow4.push_back(ui->mat2_3_3);
 
     //put mats into vector higher dim vector
@@ -367,44 +393,27 @@ void MainWindow::calculateButtonPressed()
 
 
     for (int i = 0 ; i < ui->spinBoxMat2Rows->value() ; i++)
+    {
 
         for (int j = 0; j < ui->spinBoxMat2Cols->value(); j++)
         {
             qDebug() << MatrixVector2[i][j]->value() * MatrixVector1[i][j]->value();
         }
-/*
-    // create helper vector
+    }
 
-    QVector<int> splitByColSizeVector;
-    splitByColSizeVector.reserve(ui->spinBoxMat2Cols->value());
-
-
-    //matrix multiplication
-
-    for (int i = 0; i < ui->spinBoxMat2Rows->value(); i++)
+    for (int i = 0 ; i < ui->spinBoxMat1Rows->value() ; i++) // output : 1 4 7 2 5 8 3 6 9
     {
-        for (int j = 0; j < ui->spinBoxMat2Cols->value(); j++)
+        for (int j = 0 ; j < ui->spinBoxMat1Cols->value(); j++)
         {
-            splitByColSizeVector.push_back(MatrixVector2[i][j]->value());
-
+            qDebug() << MatrixVector1[j][i]->value();
         }
     }
 
 
-    for (int j = 0; j < ui->spinBoxMat2Cols->value(); j++)
+    for (int i = 0 ; i < ui->spinBoxMat2Rows->value(); i++)
     {
-        for (int i = 0 + j; i < splitByColSizeVector.size(); i += ui->spinBoxMat2Cols->value())
-        {
-            QVector
-            splitByColSizeVector[i];
-        }
+        qDebug() << mulVectors(MatrixVector2[i],MatrixVector1);
     }
-    */
-
-
-
-
-
 
     ui->frameMat3->show();
 }
