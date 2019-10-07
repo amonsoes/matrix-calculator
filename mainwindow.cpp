@@ -20,7 +20,7 @@ void printVector(QVector<QSpinBox*> vect)
 }
 
 
-QVector<int> mulVectors(QVector<int> firstVec,QVector<QVector<int>> matrixVec)
+QVector<int> mulVectors(QVector<QSpinBox*> firstVec,QVector<QVector<QSpinBox*>> matrixVec)
 {
     QVector<QVector<int>> mulMatrix;
     mulMatrix.reserve(firstVec.size());
@@ -29,12 +29,12 @@ QVector<int> mulVectors(QVector<int> firstVec,QVector<QVector<int>> matrixVec)
     {
         QVector<int> temp;
 
-        for (QVector<int> vec : matrixVec ) //matrixVec : ((1,2),(3,4),(5,6))
+        for (QVector<QSpinBox*> vec : matrixVec ) //matrixVec : ((1,2),(3,4),(5,6))
         {
 
-            for (int num : vec) // vec : (1,2)
+            for (QSpinBox* spinbox : vec) // vec : (1,2)
             {
-                temp.push_back(i * num);
+                temp.push_back(firstVec[i]->value() * spinbox->value());
                 mulMatrix.push_back(temp); // i* 1, i* 2
             }
 
@@ -412,7 +412,7 @@ void MainWindow::calculateButtonPressed()
 
     for (int i = 0 ; i < ui->spinBoxMat2Rows->value(); i++)
     {
-        qDebug() << mulVectors(MatrixVector2[i],MatrixVector1);
+        mulVectors(MatrixVector2[i],MatrixVector1);
     }
 
     ui->frameMat3->show();
