@@ -10,53 +10,78 @@
 #include <QVector>
 
 
-void printVector(QVector<QSpinBox*> vect)
-{
-    for (QSpinBox* i : vect)
-    {
-        qDebug() << i;
+#define PRINT(x) qDebug() << x
 
+template <typename T>
+void printVector(QVector<T> vec){
+    PRINT("----------------");
+    for (T i : vec)
+    {
+        PRINT(i);
     }
+    PRINT("VECTOR PRINTED");
+    PRINT("----------------");
+
 }
 
+template <typename V>
+void printMatrix(QVector<V> mat){
+    PRINT("==================");
 
-QVector<int> mulVectors(QVector<QSpinBox*> firstVec,QVector<QVector<QSpinBox*>> matrixVec)
-{
-    QVector<QVector<int>> mulMatrix;
-    mulMatrix.reserve(firstVec.size());
-
-    for (int i = 0; i < firstVec.size(); i++) //(1,2,3)
+    for (V i : mat)
     {
-        QVector<int> temp;
-
-        for (QVector<QSpinBox*> vec : matrixVec ) //matrixVec : ((1,2),(3,4),(5,6))
-        {
-
-            for (QSpinBox* spinbox : vec) // vec : (1,2)
-            {
-                temp.push_back(firstVec[i]->value() * spinbox->value());
-                mulMatrix.push_back(temp); // i* 1, i* 2
-            }
-
-        } // for
+        printVector(i);
     }
+    PRINT("MATRIX PRINTED");
+    PRINT("==================");
 
-    QVector<int> resultVec;
+}
 
-    for (int i = 0; i < mulMatrix.size(); i++)
+QVector<int> matVecMul( QVector<int> vec,QVector<QVector<int> > mat)
+{
+
+    QVector<int> result;
+    result.reserve(vec.size());
+    QVector<QVector<int> > temp;
+
+    for (int i = 0 ; i < vec.size() ; i++) //vec (1,2,3)
     {
-        int sum = 0;
+        QVector<int> subTemp;
 
-        for (int j = 0; j < mulMatrix.size(); j++)
+        for (int num : mat[i])
         {
-            sum += mulMatrix[j][i];
+            subTemp.push_back(num * vec[i]);
         }
 
-        resultVec.push_back(sum);
+        temp.push_back(subTemp);
     }
-    return resultVec;
+
+
+    for (int j = 0; j < temp[j].size() ; j++)
+    {
+        int total_j = 0;
+
+        for (int x = 0 ; x < temp.size(); x++)
+        {
+            total_j += temp[x][j];
+        }
+
+        result.push_back(total_j);
+
+    }
+    return result;
 }
 
+QVector<QVector<int> > matMatMul (QVector<QVector<int> > mat1, QVector<QVector<int> > mat2)
+{
+    QVector<QVector<int> > res_mat;
+
+    for (QVector<int> vec : mat1)
+    {
+        res_mat.push_back(matVecMul(vec,mat2));
+    }
+    return res_mat;
+}
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -79,9 +104,6 @@ MainWindow::MainWindow(QWidget *parent)
         ui-> frameMat2->show();
         ui-> frameMat1->show();
     }
-
-
-
 
 
     connect(ui->pushButtonSetDim,SIGNAL(released()),this,SLOT(dimensionButtonPressed()));
@@ -195,6 +217,8 @@ void MainWindow::dimensionButtonPressed(){
     MatrixVector2.push_back(mat2VecRow2);
     MatrixVector2.push_back(mat2VecRow3);
     MatrixVector2.push_back(mat2VecRow4);
+
+
 
 
 
@@ -335,6 +359,39 @@ void MainWindow::calculateButtonPressed()
     MatrixVector2.push_back(mat2VecRow3);
     MatrixVector2.push_back(mat2VecRow4);
 
+    QVector<QVector<int>> CroppedMat1;
+    QVector<QVector<int>> CroppedMat2;
+
+
+    for (int i = 0;i < ui->spinBoxMat1Cols->value(); i++)
+    {
+        QVector<int> temp;
+
+        for (int j = 0; j < ui->spinBoxMat1Rows->value();j++)
+        {
+
+            temp.push_back(MatrixVector1[i][j]->value());
+        }
+
+        CroppedMat1.push_back(temp);
+    }
+
+    for (int i = 0;i < ui->spinBoxMat2Cols->value(); i++)
+    {
+        QVector<int> temp;
+
+        for (int j = 0; j < ui->spinBoxMat2Rows->value();j++)
+        {
+
+            temp.push_back(MatrixVector2[j][i]->value());
+        }
+
+        CroppedMat2.push_back(temp);
+    }
+
+
+    //create mat3
+
     QVector<QSpinBox*> mat3VecRow1;
     mat3VecRow1.reserve(4);
     mat3VecRow1.push_back(ui->mat3_0_0);
@@ -392,28 +449,18 @@ void MainWindow::calculateButtonPressed()
     }
 
 
-    for (int i = 0 ; i < ui->spinBoxMat2Rows->value() ; i++)
-    {
+    QVector<QVector<int>> resultMatMul = matMatMul(CroppedMat2,CroppedMat1);
 
-        for (int j = 0; j < ui->spinBoxMat2Cols->value(); j++)
-        {
-            qDebug() << MatrixVector2[i][j]->value() * MatrixVector1[i][j]->value();
-        }
-    }
 
-    for (int i = 0 ; i < ui->spinBoxMat1Rows->value() ; i++) // output : 1 4 7 2 5 8 3 6 9
+    for (int i = 0 ; i < resultMatMul.size(); i++)
     {
-        for (int j = 0 ; j < ui->spinBoxMat1Cols->value(); j++)
+        for (int j = 0; j < resultMatMul[i].size();j++)
         {
-            qDebug() << MatrixVector1[j][i]->value();
+            MatrixVector3[i][j]->setValue(resultMatMul[i][j]);
         }
     }
 
 
-    for (int i = 0 ; i < ui->spinBoxMat2Rows->value(); i++)
-    {
-        mulVectors(MatrixVector2[i],MatrixVector1);
-    }
 
     ui->frameMat3->show();
 }
