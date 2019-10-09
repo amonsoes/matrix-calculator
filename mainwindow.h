@@ -21,5 +21,6 @@ private:
 private slots:
     void dimensionButtonPressed();
     void calculateButtonPressed();
+    void on_comboBoxChooseOperation_currentIndexChanged(int index);
 };
 #endif // MAINWINDOW_H
